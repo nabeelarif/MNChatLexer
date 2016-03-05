@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Lexer : NSObject
-
++(NSDictionary*)dictionaryForChatText:(NSString*)chatText;
++(NSString*)jsonStringForChatText:(NSString*)chatText prettyPrint:(BOOL)prettyPrint;
 @end

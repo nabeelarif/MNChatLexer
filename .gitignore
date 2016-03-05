@@ -1,0 +1,7 @@
+/Pods/
+build/
+.DS_Store
+*.lock
+*.pbxuser
+xcuserdata/
+DerivedData/

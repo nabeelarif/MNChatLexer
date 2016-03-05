@@ -13,6 +13,7 @@
 		7D0B399D1C8A124F002201FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B399B1C8A124F002201FE /* Main.storyboard */; };
 		7D0B399F1C8A124F002201FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B399E1C8A124F002201FE /* Assets.xcassets */; };
 		7D0B39A21C8A124F002201FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B39A01C8A124F002201FE /* LaunchScreen.storyboard */; };
+		7D0B39AC1C8A18DD002201FE /* Lexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B39AB1C8A18DD002201FE /* Lexer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		7D0B399E1C8A124F002201FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D0B39A11C8A124F002201FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D0B39A31C8A124F002201FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D0B39AA1C8A18DD002201FE /* Lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lexer.h; sourceTree = "<group>"; };
+		7D0B39AB1C8A18DD002201FE /* Lexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lexer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		7D0B39911C8A124F002201FE /* ChatLexer */ = {
 			isa = PBXGroup;
 			children = (
+				7D0B39A91C8A183C002201FE /* Lexer */,
 				7D0B39951C8A124F002201FE /* AppDelegate.h */,
 				7D0B39961C8A124F002201FE /* AppDelegate.m */,
 				7D0B39981C8A124F002201FE /* ViewController.h */,
@@ -77,6 +81,15 @@
 				7D0B39931C8A124F002201FE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D0B39A91C8A183C002201FE /* Lexer */ = {
+			isa = PBXGroup;
+			children = (
+				7D0B39AA1C8A18DD002201FE /* Lexer.h */,
+				7D0B39AB1C8A18DD002201FE /* Lexer.m */,
+			);
+			path = Lexer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				7D0B399A1C8A124F002201FE /* ViewController.m in Sources */,
 				7D0B39971C8A124F002201FE /* AppDelegate.m in Sources */,
+				7D0B39AC1C8A18DD002201FE /* Lexer.m in Sources */,
 				7D0B39941C8A124F002201FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
