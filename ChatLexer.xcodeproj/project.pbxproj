@@ -13,7 +13,10 @@
 		7D0B399D1C8A124F002201FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B399B1C8A124F002201FE /* Main.storyboard */; };
 		7D0B399F1C8A124F002201FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B399E1C8A124F002201FE /* Assets.xcassets */; };
 		7D0B39A21C8A124F002201FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0B39A01C8A124F002201FE /* LaunchScreen.storyboard */; };
-		7D0B39AC1C8A18DD002201FE /* Lexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B39AB1C8A18DD002201FE /* Lexer.m */; };
+		7D0B39AC1C8A18DD002201FE /* MNParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B39AB1C8A18DD002201FE /* MNParser.m */; };
+		7DFBCF881C8AFE5E00B04444 /* MNLexeme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF871C8AFE5E00B04444 /* MNLexeme.m */; };
+		7DFBCF8B1C8AFFD300B04444 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF8A1C8AFFD300B04444 /* Constants.m */; };
+		7DFBCF8E1C8B1E2400B04444 /* ParserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +30,14 @@
 		7D0B399E1C8A124F002201FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D0B39A11C8A124F002201FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D0B39A31C8A124F002201FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D0B39AA1C8A18DD002201FE /* Lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lexer.h; sourceTree = "<group>"; };
-		7D0B39AB1C8A18DD002201FE /* Lexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lexer.m; sourceTree = "<group>"; };
+		7D0B39AA1C8A18DD002201FE /* MNParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNParser.h; sourceTree = "<group>"; };
+		7D0B39AB1C8A18DD002201FE /* MNParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNParser.m; sourceTree = "<group>"; };
+		7DFBCF861C8AFE5E00B04444 /* MNLexeme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNLexeme.h; sourceTree = "<group>"; };
+		7DFBCF871C8AFE5E00B04444 /* MNLexeme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNLexeme.m; sourceTree = "<group>"; };
+		7DFBCF891C8AFFB900B04444 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		7DFBCF8A1C8AFFD300B04444 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		7DFBCF8C1C8B1E2400B04444 /* ParserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserManager.h; sourceTree = "<group>"; };
+		7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +95,14 @@
 		7D0B39A91C8A183C002201FE /* Lexer */ = {
 			isa = PBXGroup;
 			children = (
-				7D0B39AA1C8A18DD002201FE /* Lexer.h */,
-				7D0B39AB1C8A18DD002201FE /* Lexer.m */,
+				7D0B39AA1C8A18DD002201FE /* MNParser.h */,
+				7D0B39AB1C8A18DD002201FE /* MNParser.m */,
+				7DFBCF861C8AFE5E00B04444 /* MNLexeme.h */,
+				7DFBCF871C8AFE5E00B04444 /* MNLexeme.m */,
+				7DFBCF891C8AFFB900B04444 /* Constants.h */,
+				7DFBCF8A1C8AFFD300B04444 /* Constants.m */,
+				7DFBCF8C1C8B1E2400B04444 /* ParserManager.h */,
+				7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */,
 			);
 			path = Lexer;
 			sourceTree = "<group>";
@@ -164,8 +179,11 @@
 			files = (
 				7D0B399A1C8A124F002201FE /* ViewController.m in Sources */,
 				7D0B39971C8A124F002201FE /* AppDelegate.m in Sources */,
-				7D0B39AC1C8A18DD002201FE /* Lexer.m in Sources */,
+				7DFBCF881C8AFE5E00B04444 /* MNLexeme.m in Sources */,
+				7D0B39AC1C8A18DD002201FE /* MNParser.m in Sources */,
 				7D0B39941C8A124F002201FE /* main.m in Sources */,
+				7DFBCF8E1C8B1E2400B04444 /* ParserManager.m in Sources */,
+				7DFBCF8B1C8AFFD300B04444 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +330,7 @@
 				7D0B39A81C8A124F002201FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Lexer/Lexer.h"
+#import "Lexer/MNParser.h"
 
 @interface ViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *tvInput;
@@ -36,6 +36,16 @@
         [self displayOutputForText:textView.text];
     }
 }
+
+//- (BOOL)textView:(UITextView*) textView shouldChangeTextInRange: (NSRange) range replacementText: (NSString*) text
+//{
+//    if ([text isEqualToString:@"\n"]) {
+//        [textView resignFirstResponder];
+//        return NO;
+//    }
+//    return YES;
+//    
+//}
 #pragma mark - Actions
 - (IBAction)actionAnalyze:(id)sender {
     
@@ -45,6 +55,8 @@
 #pragma mark - methods
 -(void)displayOutputForText:(NSString*)text
 {
-    self.tvOutput.text = [Lexer jsonStringForChatText:text prettyPrint:YES];
+    NSDictionary *dictionary = [MNParserKit parseText:text];
+    NSString *jsonString = [MNParser jsonForDictionary:dictionary prettyPrint:YES];
+    self.tvOutput.text = jsonString;
 }
 @end
