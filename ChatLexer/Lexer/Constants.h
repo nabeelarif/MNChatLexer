@@ -10,5 +10,6 @@
 #define Constants_h
 extern NSString *const kRegexMention;
 extern NSString *const kRegexEmoticon;
+extern NSString *const kRegexHtmlTitle;
 
 #endif /* Constants_h */

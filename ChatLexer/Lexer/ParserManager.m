@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "MNParser.h"
 #import "MNLexeme.h"
+#import "URLTitlesManager.h"
 
 @implementation ParserManager
 +(void)setupParserForChatRules
@@ -27,14 +28,20 @@
     //Lexeme for URLs
     MNLexeme *lexemeUrl = [[MNLexeme alloc] init];
     lexemeUrl.regex = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
-    lexemeUrl.parseLexeme = ^id(NSTextCheckingResult * match,NSUInteger numberOfComponentToUse, NSString *text)
+    lexemeUrl.parseLexeme = ^id(NSTextCheckingResult * match,NSUInteger numberOfComponentToUse, NSString *text, BOOL isFinal)
     {
         NSMutableDictionary *urlDictionary;
         if ([match resultType] == NSTextCheckingTypeLink) {
             if (([[match.URL scheme] isEqualToString:@"mailto"]==NO)) {
                 urlDictionary = [NSMutableDictionary new];
                 [urlDictionary setObject:[text substringWithRange:match.range] forKey:@"url"];
-                [urlDictionary setObject:@"" forKey:@"title"];
+                
+                NSInteger endLocation = match.range.location+match.range.length;
+                NSString *title = [URLTitlesKit titleForURL:match.URL];
+                if (title.length==0 && (endLocation<text.length || isFinal)) {
+                    [URLTitlesKit fetchTitleForURL:match.URL];
+                }
+                [urlDictionary setObject:title?title:@"" forKey:@"title"];
             }
         }
         return urlDictionary;

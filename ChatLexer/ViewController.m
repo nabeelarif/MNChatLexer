@@ -33,29 +33,20 @@
 -(void)textViewDidChange:(UITextView *)textView
 {
     if (self.switchLive.on) {
-        [self displayOutputForText:textView.text];
+        [self displayOutputForText:textView.text isFinal:NO];
     }
 }
 
-//- (BOOL)textView:(UITextView*) textView shouldChangeTextInRange: (NSRange) range replacementText: (NSString*) text
-//{
-//    if ([text isEqualToString:@"\n"]) {
-//        [textView resignFirstResponder];
-//        return NO;
-//    }
-//    return YES;
-//    
-//}
 #pragma mark - Actions
 - (IBAction)actionAnalyze:(id)sender {
     
-    [self displayOutputForText:self.tvInput.text];
+    [self displayOutputForText:self.tvInput.text isFinal:YES];
     [self.tvInput resignFirstResponder];
 }
 #pragma mark - methods
--(void)displayOutputForText:(NSString*)text
+-(void)displayOutputForText:(NSString*)text isFinal:(BOOL)isFinal
 {
-    NSDictionary *dictionary = [MNParserKit parseText:text];
+    NSDictionary *dictionary = [MNParserKit parseText:text isFinal:isFinal];
     NSString *jsonString = [MNParser jsonForDictionary:dictionary prettyPrint:YES];
     self.tvOutput.text = jsonString;
 }

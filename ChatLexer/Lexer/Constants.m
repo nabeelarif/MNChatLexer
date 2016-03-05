@@ -11,3 +11,4 @@
 
 NSString *const kRegexMention = @"(?<=^|\\W)@([\\w]+)(?=$|[^a-zA-Z0-9_.])";
 NSString *const kRegexEmoticon = @"\\((\\w+)\\)";
+NSString *const kRegexHtmlTitle = @"(?<=<title>)(.*?)(?=</title>)";

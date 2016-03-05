@@ -12,7 +12,6 @@
 
 @interface MNParser ()
 @property (nonatomic, strong) NSDictionary<NSString*,MNLexeme*> *dictionaryLexemes;
--(nonnull NSDictionary*)parseForText:(nonnull NSString*)text;
 @end
 
 @implementation MNParser
@@ -29,32 +28,36 @@
 #pragma mark - Lexeme Methods
 -(void)setLexeme:(MNLexeme *)lexeme forKey:(NSString *)key
 {
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:self.dictionaryLexemes];
-    [dictionary setObject:lexeme forKey:key];
-    self.dictionaryLexemes = [NSDictionary dictionaryWithDictionary:dictionary];
+    @synchronized(self) {
+        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:self.dictionaryLexemes];
+        [dictionary setObject:lexeme forKey:key];
+        self.dictionaryLexemes = [NSDictionary dictionaryWithDictionary:dictionary];
+    }
 }
 -(MNLexeme*)removeLexemeForKey:(NSString *)key{
-    
-    MNLexeme *lexeme = [self.dictionaryLexemes valueForKey:key];
-    if (lexeme) {
-        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:self.dictionaryLexemes];
-        [dictionary removeObjectForKey:key];
-        self.dictionaryLexemes = [NSDictionary dictionaryWithDictionary:dictionary];
+    MNLexeme *lexeme;
+    @synchronized(self) {
+        lexeme = [self.dictionaryLexemes valueForKey:key];
+        if (lexeme) {
+            NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:self.dictionaryLexemes];
+            [dictionary removeObjectForKey:key];
+            self.dictionaryLexemes = [NSDictionary dictionaryWithDictionary:dictionary];
+        }
     }
     return lexeme;
 }
--(NSDictionary*)parseText:(NSString*)text
+-(NSDictionary*)parseText:(NSString*)text isFinal:(BOOL)isFinal
 {
     __block NSMutableDictionary *outputDictionary = [NSMutableDictionary new];
     [self.dictionaryLexemes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, MNLexeme * _Nonnull obj, BOOL * _Nonnull stop) {
-        NSArray *value = [self lexAndParseText:text forLexeme:obj];
+        NSArray *value = [self lexAndParseText:text forLexeme:obj isFinal:isFinal];
         if (value.count>0) {
             [outputDictionary setObject:value forKey:key];
         }
     }];
     return outputDictionary;
 }
--(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme
+-(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme isFinal:(BOOL)isFinal
 {
     NSMutableSet *setResults = [NSMutableSet new];
     NSArray *matches = [lexeme.regex matchesInString:text options:0
@@ -62,7 +65,7 @@
     for (NSTextCheckingResult *match in matches) {
         NSString *result;
         if (lexeme.parseLexeme) {
-            result = lexeme.parseLexeme(match,lexeme.numberOfComponentToUse, text);
+            result = lexeme.parseLexeme(match,lexeme.numberOfComponentToUse, text,isFinal);
         }else{
             NSInteger rangeNumber = 0;
             if (lexeme.numberOfComponentToUse < match.numberOfRanges) {

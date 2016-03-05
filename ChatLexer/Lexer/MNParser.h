@@ -14,7 +14,7 @@
 @interface MNParser : NSObject
 
 + (nonnull id)sharedInstance;
-- (nonnull NSDictionary*)parseText:(nonnull NSString*)text;
+- (nonnull NSDictionary*)parseText:(nonnull NSString*)text isFinal:(BOOL)isFinal;
 - (void)setLexeme:(nonnull MNLexeme*)lexeme forKey:(nonnull NSString*)key;
 - (nullable MNLexeme*)removeLexemeForKey:(nonnull NSString*)key;
 + (nonnull NSString*)jsonForDictionary:(nonnull NSDictionary*)dictionary prettyPrint:(BOOL)prettyPrint;
