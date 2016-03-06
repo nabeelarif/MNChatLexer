@@ -16,14 +16,12 @@
 
 @implementation MNParser
 
-+ (id)sharedInstance {
-    static MNParser *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-        sharedMyManager.dictionaryLexemes = @{};
-    });
-    return sharedMyManager;
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        self.dictionaryLexemes = @{};
+    }
+    return self;
 }
 #pragma mark - Lexeme Methods
 -(void)setLexeme:(MNLexeme *)lexeme forKey:(NSString *)key
@@ -46,26 +44,30 @@
     }
     return lexeme;
 }
--(NSDictionary*)parseText:(NSString*)text isFinal:(BOOL)isFinal
+-(NSDictionary*)parseText:(NSString*)text
 {
     __block NSMutableDictionary *outputDictionary = [NSMutableDictionary new];
+    __block NSMutableDictionary *dataDictionary = [NSMutableDictionary new];
+    [outputDictionary setValue:dataDictionary forKey:@"data"];
     [self.dictionaryLexemes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, MNLexeme * _Nonnull obj, BOOL * _Nonnull stop) {
-        NSArray *value = [self lexAndParseText:text forLexeme:obj isFinal:isFinal];
+        NSArray *matches;
+        NSArray *value = [self lexAndParseText:text forLexeme:obj matches:&matches];
         if (value.count>0) {
-            [outputDictionary setObject:value forKey:key];
+            [outputDictionary setObject:matches forKey:key];
+            [dataDictionary setObject:value forKey:key];
         }
     }];
     return outputDictionary;
 }
--(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme isFinal:(BOOL)isFinal
+-(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme matches:(NSArray **)matches
 {
     NSMutableSet *setResults = [NSMutableSet new];
-    NSArray *matches = [lexeme.regex matchesInString:text options:0
+    *matches = [lexeme.regex matchesInString:text options:0
                                         range:NSMakeRange(0, [text length])];
-    for (NSTextCheckingResult *match in matches) {
+    for (NSTextCheckingResult *match in *matches) {
         NSString *result;
         if (lexeme.parseLexeme) {
-            result = lexeme.parseLexeme(match,lexeme.numberOfComponentToUse, text,isFinal);
+            result = lexeme.parseLexeme(match,lexeme.numberOfComponentToUse, text);
         }else{
             NSInteger rangeNumber = 0;
             if (lexeme.numberOfComponentToUse < match.numberOfRanges) {
@@ -78,18 +80,5 @@
         }
     }
     return [setResults allObjects];
-}
-+(NSString*)jsonForDictionary:(NSDictionary *)dictionary prettyPrint:(BOOL)prettyPrint
-{
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization
-                        dataWithJSONObject:dictionary
-                        options:(NSJSONWritingOptions)    (prettyPrint ? NSJSONWritingPrettyPrinted : 0)
-                        error:&error];
-    if (! jsonData) {
-        return @"{}";
-    } else {
-        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
 }
 @end

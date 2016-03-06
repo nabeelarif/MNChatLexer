@@ -12,7 +12,7 @@
 
 @interface URLTitlesManager : NSObject
 
-+ (nonnull id)sharedInstance;
++ (nonnull instancetype)sharedInstance;
 - (nullable NSString *)titleForUrlString:(nonnull NSString*)urlStr;
 - (nullable NSString *)titleForURL:(nonnull NSURL*)url;
 - (void)fetchTitleForUrlString:(nonnull NSString*)urlStr;

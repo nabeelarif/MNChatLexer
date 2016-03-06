@@ -18,6 +18,7 @@
 		7DFBCF8B1C8AFFD300B04444 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF8A1C8AFFD300B04444 /* Constants.m */; };
 		7DFBCF8E1C8B1E2400B04444 /* ParserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */; };
 		7DFBCF921C8B536200B04444 /* URLTitlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF911C8B536200B04444 /* URLTitlesManager.m */; };
+		7DFBCF961C8B824A00B04444 /* MNParserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF951C8B824A00B04444 /* MNParserAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserManager.m; sourceTree = "<group>"; };
 		7DFBCF901C8B536200B04444 /* URLTitlesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLTitlesManager.h; sourceTree = "<group>"; };
 		7DFBCF911C8B536200B04444 /* URLTitlesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLTitlesManager.m; sourceTree = "<group>"; };
+		7DFBCF941C8B824A00B04444 /* MNParserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNParserAPI.h; sourceTree = "<group>"; };
+		7DFBCF951C8B824A00B04444 /* MNParserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNParserAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		7D0B39911C8A124F002201FE /* ChatLexer */ = {
 			isa = PBXGroup;
 			children = (
+				7DFBCF931C8B820400B04444 /* FacadeAPI */,
 				7DFBCF8F1C8B533A00B04444 /* URLTitles */,
 				7D0B39A91C8A183C002201FE /* Lexer */,
 				7D0B39951C8A124F002201FE /* AppDelegate.h */,
@@ -118,6 +122,15 @@
 				7DFBCF911C8B536200B04444 /* URLTitlesManager.m */,
 			);
 			path = URLTitles;
+			sourceTree = "<group>";
+		};
+		7DFBCF931C8B820400B04444 /* FacadeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				7DFBCF941C8B824A00B04444 /* MNParserAPI.h */,
+				7DFBCF951C8B824A00B04444 /* MNParserAPI.m */,
+			);
+			path = FacadeAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFBCF921C8B536200B04444 /* URLTitlesManager.m in Sources */,
+				7DFBCF961C8B824A00B04444 /* MNParserAPI.m in Sources */,
 				7D0B399A1C8A124F002201FE /* ViewController.m in Sources */,
 				7D0B39971C8A124F002201FE /* AppDelegate.m in Sources */,
 				7DFBCF881C8AFE5E00B04444 /* MNLexeme.m in Sources */,

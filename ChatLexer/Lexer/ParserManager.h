@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MNParser;
 
 @interface ParserManager : NSObject
-+(void)setupParserForChatRules;
++(void)setupChatRulesForParser:(MNParser*)parser;
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef id _Nullable  (^ParseLexeme)(NSTextCheckingResult * _Nonnull match, NSUInteger numberOfComponentToUse, NSString * _Nonnull text, BOOL isFinal);
+typedef id _Nullable  (^ParseLexeme)(NSTextCheckingResult * _Nonnull match, NSUInteger numberOfComponentToUse, NSString * _Nonnull text);
 
 @interface MNLexeme : NSObject
 @property (nonatomic, strong, nonnull) NSRegularExpression *regex;
