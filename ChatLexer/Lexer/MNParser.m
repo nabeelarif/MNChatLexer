@@ -50,7 +50,7 @@
     __block NSMutableDictionary *dataDictionary = [NSMutableDictionary new];
     [outputDictionary setValue:dataDictionary forKey:@"data"];
     [self.dictionaryLexemes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, MNLexeme * _Nonnull obj, BOOL * _Nonnull stop) {
-        NSArray *matches;
+        NSMutableDictionary<NSTextCheckingResult*, id> *matches;
         NSArray *value = [self lexAndParseText:text forLexeme:obj matches:&matches];
         if (value.count>0) {
             [outputDictionary setObject:matches forKey:key];
@@ -59,12 +59,14 @@
     }];
     return outputDictionary;
 }
--(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme matches:(NSArray **)matches
+-(NSArray*)lexAndParseText:(NSString*)text forLexeme:(MNLexeme*)lexeme
+                   matches:(NSMutableDictionary<NSTextCheckingResult*, id> **)dictionary
 {
     NSMutableSet *setResults = [NSMutableSet new];
-    *matches = [lexeme.regex matchesInString:text options:0
+    NSArray * matches = [lexeme.regex matchesInString:text options:0
                                         range:NSMakeRange(0, [text length])];
-    for (NSTextCheckingResult *match in *matches) {
+    *dictionary = [NSMutableDictionary new];
+    for (NSTextCheckingResult *match in matches) {
         NSString *result;
         if (lexeme.parseLexeme) {
             result = lexeme.parseLexeme(match,lexeme.numberOfComponentToUse, text);
@@ -77,6 +79,7 @@
         }
         if(result){
             [setResults addObject:result];
+            [*dictionary setObject:result forKey:match];
         }
     }
     return [setResults allObjects];

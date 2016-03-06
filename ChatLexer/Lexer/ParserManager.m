@@ -34,8 +34,8 @@
         if ([match resultType] == NSTextCheckingTypeLink) {
             if (([[match.URL scheme] isEqualToString:@"mailto"]==NO)) {
                 urlDictionary = [NSMutableDictionary new];
-                [urlDictionary setObject:[text substringWithRange:match.range] forKey:@"url"];
-                [urlDictionary setObject:@"" forKey:@"title"];
+                [urlDictionary setObject:[text substringWithRange:match.range] forKey:kParserKeyUrl];
+                [urlDictionary setObject:@"" forKey:kParserKeyTitle];
             }
         }
         
@@ -54,9 +54,9 @@
 //        }
         return urlDictionary;
     };
-    [parser setLexeme:lexemeMention forKey:@"mentions"];
-    [parser setLexeme:lexemeEmoticon forKey:@"emoticons"];
-    [parser setLexeme:lexemeUrl forKey:@"links"];
+    [parser setLexeme:lexemeMention forKey:kParserKeyMentions];
+    [parser setLexeme:lexemeEmoticon forKey:kParserKeyEmoticons];
+    [parser setLexeme:lexemeUrl forKey:kParserKeyLinks];
     
 }
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "Lexer/MNParser.h"
 #import "MNParserAPI.h"
 
 @interface ViewController () <UITextViewDelegate>
@@ -47,8 +46,12 @@
 #pragma mark - methods
 -(void)displayOutputForText:(NSString*)text isFinal:(BOOL)isFinal
 {
-    NSDictionary *dictionary = [ParserKit parseText:text isFinal:isFinal];
-    NSString *jsonString = [MNParserAPI jsonForDictionary:dictionary prettyPrint:YES];
-    self.tvOutput.text = jsonString;
+    
+    __weak typeof(self) weakSelf = self;
+    [ParserKit parseText:text isFinal:isFinal completion:^(NSDictionary * _Nonnull result, NSString * _Nonnull originalText) {
+        NSString *jsonString = [MNParserAPI jsonForDictionary:result prettyPrint:YES];
+        weakSelf.tvOutput.text = jsonString;
+    }];
+//    NSDictionary *dictionary = [ParserKit parseText:text isFinal:isFinal];
 }
 @end

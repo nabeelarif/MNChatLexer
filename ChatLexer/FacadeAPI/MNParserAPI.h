@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define ParserKit [MNParserAPI sharedInstance]
-typedef void (^ParsingComplete)(NSDictionary * _Nonnull result);
+typedef void (^ParsingComplete)(NSDictionary * _Nonnull result, NSString * _Nonnull originalText);
 
 @interface MNParserAPI : NSObject
 
