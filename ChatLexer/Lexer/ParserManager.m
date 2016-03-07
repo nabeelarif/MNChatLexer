@@ -20,7 +20,7 @@
     [lexemeMention setRegexWithQuery:kRegexMention];
     lexemeMention.numberOfComponentToUse = 1;
     
-    //Lexeme for @emoticon
+    //Lexeme for emoticon
     MNLexeme *lexemeEmoticon = [[MNLexeme alloc] init];
     [lexemeEmoticon setRegexWithQuery:kRegexEmoticon];
     lexemeEmoticon.numberOfComponentToUse = 1;
