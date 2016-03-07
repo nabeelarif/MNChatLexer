@@ -23,9 +23,11 @@
 		7DFDEF371C8DD56700132006 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF351C8DD56700132006 /* iTunesArtwork@2x */; };
 		7DFDEF391C8DD79C00132006 /* launcher.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF381C8DD79C00132006 /* launcher.jpg */; };
 		7DFDEF3B1C8E098F00132006 /* gradientbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF3A1C8E098F00132006 /* gradientbackground.jpg */; };
+		A5402FEB9DAEFA0E04A3F2A0 /* libPods-ChatLexer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D5FF6734E71F36F61A2F6 /* libPods-ChatLexer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		077D5FF6734E71F36F61A2F6 /* libPods-ChatLexer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatLexer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0B398F1C8A124F002201FE /* ChatLexer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLexer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0B39931C8A124F002201FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D0B39951C8A124F002201FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		7DFDEF351C8DD56700132006 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		7DFDEF381C8DD79C00132006 /* launcher.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launcher.jpg; sourceTree = "<group>"; };
 		7DFDEF3A1C8E098F00132006 /* gradientbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradientbackground.jpg; sourceTree = "<group>"; };
+		8E79254B965D30199866F733 /* Pods-ChatLexer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLexer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatLexer/Pods-ChatLexer.debug.xcconfig"; sourceTree = "<group>"; };
+		C986418FD86D24CB29EEEF47 /* Pods-ChatLexer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLexer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatLexer/Pods-ChatLexer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +63,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5402FEB9DAEFA0E04A3F2A0 /* libPods-ChatLexer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		467D0315F900A2D48B252D24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E79254B965D30199866F733 /* Pods-ChatLexer.debug.xcconfig */,
+				C986418FD86D24CB29EEEF47 /* Pods-ChatLexer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		64A52E9C5873E4B2BD66A1D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				077D5FF6734E71F36F61A2F6 /* libPods-ChatLexer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D0B39861C8A124F002201FE = {
 			isa = PBXGroup;
 			children = (
 				7D0B39911C8A124F002201FE /* ChatLexer */,
 				7D0B39901C8A124F002201FE /* Products */,
+				467D0315F900A2D48B252D24 /* Pods */,
+				64A52E9C5873E4B2BD66A1D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D0B39A61C8A124F002201FE /* Build configuration list for PBXNativeTarget "ChatLexer" */;
 			buildPhases = (
+				FFB9CC290ED3BF40DD58508D /* Check Pods Manifest.lock */,
 				7D0B398B1C8A124F002201FE /* Sources */,
 				7D0B398C1C8A124F002201FE /* Frameworks */,
 				7D0B398D1C8A124F002201FE /* Resources */,
+				D79FB9734A39FA5EB5535D8D /* Embed Pods Frameworks */,
+				7E396BD8070D6502C3B98B6E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +240,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E396BD8070D6502C3B98B6E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatLexer/Pods-ChatLexer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D79FB9734A39FA5EB5535D8D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatLexer/Pods-ChatLexer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFB9CC290ED3BF40DD58508D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7D0B398B1C8A124F002201FE /* Sources */ = {
@@ -335,9 +410,11 @@
 		};
 		7D0B39A71C8A124F002201FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E79254B965D30199866F733 /* Pods-ChatLexer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChatLexer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabeelarif.ChatLexer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,9 +423,11 @@
 		};
 		7D0B39A81C8A124F002201FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C986418FD86D24CB29EEEF47 /* Pods-ChatLexer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChatLexer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabeelarif.ChatLexer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
