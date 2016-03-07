@@ -38,20 +38,6 @@
                 [urlDictionary setObject:@"" forKey:kParserKeyTitle];
             }
         }
-        
-//        if ([match resultType] == NSTextCheckingTypeLink) {
-//            if (([[match.URL scheme] isEqualToString:@"mailto"]==NO)) {
-//                urlDictionary = [NSMutableDictionary new];
-//                [urlDictionary setObject:[text substringWithRange:match.range] forKey:@"url"];
-//                
-//                NSInteger endLocation = match.range.location+match.range.length;
-//                NSString *title = [URLTitlesKit titleForURL:match.URL];
-//                if (title.length==0 && (endLocation<text.length || isFinal)) {
-//                    [URLTitlesKit fetchTitleForURL:match.URL];
-//                }
-//                [urlDictionary setObject:title?title:@"" forKey:@"title"];
-//            }
-//        }
         return urlDictionary;
     };
     [parser setLexeme:lexemeMention forKey:kParserKeyMentions];

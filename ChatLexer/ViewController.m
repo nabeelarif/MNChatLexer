@@ -22,7 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tvInput.delegate = self;
-    // Do any additional setup after loading the view, typically from a nib.
+    self.tvInput.layer.cornerRadius = 5;
+    self.tvOutput.layer.cornerRadius = 5;
+    self.btnAnalyze.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,19 +41,16 @@
 
 #pragma mark - Actions
 - (IBAction)actionAnalyze:(id)sender {
-    
     [self displayOutputForText:self.tvInput.text isFinal:YES];
     [self.tvInput resignFirstResponder];
 }
 #pragma mark - methods
 -(void)displayOutputForText:(NSString*)text isFinal:(BOOL)isFinal
 {
-    
     __weak typeof(self) weakSelf = self;
     [ParserKit parseText:text isFinal:isFinal completion:^(NSDictionary * _Nonnull result, NSString * _Nonnull originalText) {
         NSString *jsonString = [MNParserAPI jsonForDictionary:result prettyPrint:YES];
         weakSelf.tvOutput.text = jsonString;
     }];
-//    NSDictionary *dictionary = [ParserKit parseText:text isFinal:isFinal];
 }
 @end
