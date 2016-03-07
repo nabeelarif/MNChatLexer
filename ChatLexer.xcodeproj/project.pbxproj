@@ -19,6 +19,9 @@
 		7DFBCF8E1C8B1E2400B04444 /* ParserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF8D1C8B1E2400B04444 /* ParserManager.m */; };
 		7DFBCF921C8B536200B04444 /* URLTitlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF911C8B536200B04444 /* URLTitlesManager.m */; };
 		7DFBCF961C8B824A00B04444 /* MNParserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFBCF951C8B824A00B04444 /* MNParserAPI.m */; };
+		7DFDEF361C8DD56700132006 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF341C8DD56700132006 /* iTunesArtwork */; };
+		7DFDEF371C8DD56700132006 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF351C8DD56700132006 /* iTunesArtwork@2x */; };
+		7DFDEF391C8DD79C00132006 /* launcher.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDEF381C8DD79C00132006 /* launcher.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		7DFBCF911C8B536200B04444 /* URLTitlesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLTitlesManager.m; sourceTree = "<group>"; };
 		7DFBCF941C8B824A00B04444 /* MNParserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNParserAPI.h; sourceTree = "<group>"; };
 		7DFBCF951C8B824A00B04444 /* MNParserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNParserAPI.m; sourceTree = "<group>"; };
+		7DFDEF341C8DD56700132006 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		7DFDEF351C8DD56700132006 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		7DFDEF381C8DD79C00132006 /* launcher.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launcher.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,9 @@
 				7D0B399E1C8A124F002201FE /* Assets.xcassets */,
 				7D0B39A01C8A124F002201FE /* LaunchScreen.storyboard */,
 				7D0B39A31C8A124F002201FE /* Info.plist */,
+				7DFDEF341C8DD56700132006 /* iTunesArtwork */,
+				7DFDEF351C8DD56700132006 /* iTunesArtwork@2x */,
+				7DFDEF381C8DD79C00132006 /* launcher.jpg */,
 				7D0B39921C8A124F002201FE /* Supporting Files */,
 			);
 			path = ChatLexer;
@@ -191,8 +200,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0B39A21C8A124F002201FE /* LaunchScreen.storyboard in Resources */,
+				7DFDEF371C8DD56700132006 /* iTunesArtwork@2x in Resources */,
 				7D0B399F1C8A124F002201FE /* Assets.xcassets in Resources */,
+				7DFDEF361C8DD56700132006 /* iTunesArtwork in Resources */,
 				7D0B399D1C8A124F002201FE /* Main.storyboard in Resources */,
+				7DFDEF391C8DD79C00132006 /* launcher.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

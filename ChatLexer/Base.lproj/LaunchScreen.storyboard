@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +16,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcher.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lcU-DK-KEY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Uwo-Dm-uSo">
+                                <rect key="frame" x="270" y="520" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="DTY-fT-0Af"/>
+                                    <constraint firstAttribute="height" constant="60" id="Iti-Sl-HGn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uwo-Dm-uSo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TKa-xD-ejg"/>
+                            <constraint firstItem="lcU-DK-KEY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="pas-49-LAW"/>
+                            <constraint firstItem="lcU-DK-KEY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pcN-aL-pqh"/>
+                            <constraint firstAttribute="trailing" secondItem="lcU-DK-KEY" secondAttribute="trailing" id="raK-OY-G6H"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Uwo-Dm-uSo" secondAttribute="bottom" constant="20" id="s2l-tF-aDk"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lcU-DK-KEY" secondAttribute="bottom" id="scB-Dt-dRK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +44,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="60" height="60"/>
+        <image name="launcher.jpg" width="989" height="1280"/>
+    </resources>
 </document>
