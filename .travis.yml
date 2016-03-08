@@ -1,7 +1,7 @@
 language: objective-c
 xcode_project: ChatLexer.xcodeproj # path to your xcodeproj folder
 xcode_scheme: ChatLexer
+
 podfile: Podfile
 
-script:
-  - xcodebuild [DEFAULT_OPTIONS] CODE_SIGNING_REQUIRED=NO
+script: xctool -project ChatLexer.xcodeproj -scheme ChatLexer build  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
