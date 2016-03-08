@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: ChatLexer.xcodeproj # path to your xcodeproj folder
+xcode_scheme: ChatLexer
+podfile: Podfile
