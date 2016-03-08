@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/nabeelarif100/MNChatLexer.svg?branch=master)](https://travis-ci.org/nabeelarif100/MNChatLexer)
 # MNChatLexer
 * MNSChatLexer addresses one of the challenges to programmers to extract valuable information from provided text strings. It is designed in a customizable way, so that future users can include their own rules 'MNLexeme' elements into 'MNParser'.
 * It also has a URLTitleManager, which executes an NSURLSessionDataTask to grab title of a given URL.
