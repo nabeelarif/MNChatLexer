@@ -5,8 +5,8 @@
 * The Facade API i.e MNParserAPI interact with 'MNParser' and URLTitleManager to provide a single interface to end user.
 * [Problem Statement] Explains the problem in more detail.
 
-<img src="https://github.com/nabeelarif100/MNChatLexer/blob/master/AnalyzeDemo.gif" alt="alt text" width="308" height="550">
-<img src="https://github.com/nabeelarif100/MNChatLexer/blob/master/LiveDemo.gif" alt="alt text" width="308" height="550">
+<img src="https://github.com/nabeelarif100/MNChatLexer/blob/master/AnalyzeDemo.gif" alt="Parsing on pressing button" width="308" height="550">
+<img src="https://github.com/nabeelarif100/MNChatLexer/blob/master/LiveDemo.gif" alt="Live Parsing" width="308" height="550">
 
 ## Requirements
 * Xcode 7 or higher
