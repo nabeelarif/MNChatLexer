@@ -71,9 +71,9 @@ lexemeUrl.parseLexeme = ^id(NSTextCheckingResult * match,NSUInteger numberOfComp
 [parser setLexeme:lexemeUrl forKey:kParserKeyLinks];
 ```
 ## Todo
-1. Add network checks
-2. Add Unit Tests
-3. Add UI Tests
+- [ ] Add network checks
+- [ ] Add Unit Tests
+- [ ] 3. Add UI Tests
 
 ## Author
 Muhammad Nabeel Arif
