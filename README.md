@@ -73,7 +73,7 @@ lexemeUrl.parseLexeme = ^id(NSTextCheckingResult * match,NSUInteger numberOfComp
 ## Todo
 - [ ] Add network checks
 - [ ] Add Unit Tests
-- [ ] 3. Add UI Tests
+- [ ] Add UI Tests
 
 ## Author
 Muhammad Nabeel Arif
